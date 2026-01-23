@@ -1,143 +1,97 @@
-# Dotfiles Configuration
+# dotfiles
 
-This repository contains configuration files for several tools, including `nvim`, `btop`, `cava`, and `neofetch`. Below are instructions on how to install and use each one.
+My personal configuration files for a minimalist Linux desktop environment.
 
-## Table of Contents
-1. [Neovim (nvim)](#neovim-nvim)
-2. [btop](#btop)
-3. [Cava](#cava)
-4. [Neofetch](#neofetch)
+## Overview
 
----
+This repository contains configuration files for my daily-driver setup, featuring a lightweight i3 window manager environment with carefully curated tools for productivity and aesthetics.
 
-## Neovim (nvim)
+## Components
 
-Neovim is a highly extensible Vim-based text editor. This repository contains my custom configuration for Neovim.
+- **[i3](https://i3wm.org/)** - Tiling window manager
+- **[Polybar](https://github.com/polybar/polybar)** - Status bar
+- **[Alacritty](https://github.com/alacritty/alacritty)** - GPU-accelerated terminal emulator
+- **[Picom](https://github.com/yshui/picom)** - Compositor for transparency and effects
+- **[Ranger](https://github.com/ranger/ranger)** - Terminal file manager
+- **[Fastfetch](https://github.com/fastfetch-cli/fastfetch)** - System information tool
 
-### Installation
+## Installation
 
-1. **Install Neovim**:
-    On Fedora:
-    ```bash
-    sudo dnf install neovim
-    ```
-    On Ubuntu/Debian:
-    ```bash
-    sudo apt install neovim
-    ```
+### Prerequisites
 
-2. **Clone the repository and set up configuration**:
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-    cp -r YOUR_REPO/.config/nvim ~/.config/
-    ```
+Ensure you have the required packages installed:
 
-3. **Launch Neovim**:
-    ```bash
-    nvim
-    ```
+```bash
+# Arch Linux
+sudo pacman -S i3-wm polybar alacritty picom ranger fastfetch
 
-### Usage
-- Open a file with Neovim:
-    ```bash
-    nvim <filename>
-    ```
-- To edit your Neovim config:
-    ```bash
-    nvim ~/.config/nvim/init.vim
-    ```
+# Debian/Ubuntu
+sudo apt install i3 polybar alacritty picom ranger fastfetch
+```
 
----
+### Setup
 
-## btop
+Clone this repository to your home directory:
 
-btop is a resource monitor that shows usage and stats for processors, memory, disks, network, and processes.
+```bash
+git clone https://github.com/brisbie/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+```
 
-### Installation
+Create symlinks to the appropriate config directories:
 
-1. **Install btop**:
-    On Fedora:
-    ```bash
-    sudo dnf install btop
-    ```
-    On Ubuntu/Debian:
-    ```bash
-    sudo apt install btop
-    ```
+```bash
+# Backup existing configs (optional)
+mkdir -p ~/.config/backup
+cp -r ~/.config/{i3,polybar,alacritty,picom,ranger} ~/.config/backup/
 
-2. **Clone configuration**:
-    ```bash
-    cp -r YOUR_REPO/.config/btop ~/.config/
-    ```
+# Create symlinks
+ln -sf ~/.dotfiles/alacritty ~/.config/alacritty
+ln -sf ~/.dotfiles/i3 ~/.config/i3
+ln -sf ~/.dotfiles/picom ~/.config/picom
+ln -sf ~/.dotfiles/polybar ~/.config/polybar
+ln -sf ~/.dotfiles/ranger ~/.config/ranger
+ln -sf ~/.dotfiles/fastfetch ~/.config/fastfetch
+```
 
-3. **Run btop**:
-    ```bash
-    btop
-    ```
+Restart i3 or log out and back in for changes to take effect.
 
-### Usage
-- Use `btop` to monitor system resources and manage processes interactively. The default key bindings are intuitive, and you can customize the configuration as needed.
+## Configuration Highlights
 
----
+### i3
+Tiling window manager configuration with custom keybindings and workspace setup.
 
-## Cava
+### Polybar
+Custom status bar with system monitoring, workspace indicators, and other useful modules.
 
-Cava is a console-based audio visualizer for various audio systems.
+### Alacritty
+Fast, GPU-accelerated terminal with custom color schemes and font settings.
 
-### Installation
+### Picom
+Compositor configuration for window transparency, shadows, and smooth animations.
 
-1. **Install Cava**:
-    On Fedora:
-    ```bash
-    sudo dnf install cava
-    ```
-    On Ubuntu/Debian:
-    ```bash
-    sudo apt install cava
-    ```
+### Ranger
+Vim-like file manager with custom keybindings and preview settings.
 
-2. **Clone configuration**:
-    ```bash
-    cp -r YOUR_REPO/.config/cava ~/.config/
-    ```
+### Fastfetch
+System information display with custom styling for quick system overview.
 
-3. **Run Cava**:
-    ```bash
-    cava
-    ```
+## Customization
 
-### Usage
-- Start playing music with your preferred music player and run `cava` to visualize the audio in your terminal.
+Feel free to fork this repository and modify the configurations to suit your preferences. Each component's configuration is self-contained in its respective directory.
 
----
+## Screenshots
 
-## Neofetch
+*Coming soon*
 
-Neofetch is a command-line system information tool that displays information about your system next to an image, logo, or ASCII art.
+## Contributing
 
-### Installation
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-1. **Install Neofetch**:
-    On Fedora:
-    ```bash
-    sudo dnf install neofetch
-    ```
-    On Ubuntu/Debian:
-    ```bash
-    sudo apt install neofetch
-    ```
+## License
 
-2. **Clone configuration**:
-    ```bash
-    cp -r YOUR_REPO/.config/neofetch ~/.config/
-    ```
+These configurations are provided as-is for personal use. Feel free to use and modify them as needed.
 
-3. **Run Neofetch**:
-    ```bash
-    neofetch
-    ```
+## Acknowledgments
 
-### Usage
-- Running `neofetch` will display system information in your terminal with a stylish output. You can customize the configuration in `~/.config/neofetch/config.conf` to display more or less information.
-
----
+Thanks to the developers and communities behind all the amazing tools that make this setup possible.
