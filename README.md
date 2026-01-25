@@ -14,6 +14,7 @@ This repository contains configuration files for my daily-driver setup, featurin
 - **[Picom](https://github.com/yshui/picom)** - Compositor for transparency and effects
 - **[Ranger](https://github.com/ranger/ranger)** - Terminal file manager
 - **[Fastfetch](https://github.com/fastfetch-cli/fastfetch)** - System information tool
+- **[Neovim](https://github.com/neovim/neovim)** - Text editor
 
 ## Installation
 
